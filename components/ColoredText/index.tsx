@@ -6,6 +6,11 @@ interface IColoredTextProps {
   text: string;
   size: { base?: string; sm?: string; md?: string; lg?: string; xl?: string };
   variant?: string;
+  background?:
+    | "brand.default"
+    | "brand.hover"
+    | "specials.illustrationBg"
+    | "sectionBg";
   styles?: any;
 }
 
@@ -15,15 +20,16 @@ const ColoredText: FC<IColoredTextProps> = ({
   size,
   variant,
   styles,
+  background = "brand.default",
 }) => {
   return (
     <TextElement
       size={size}
       variant={variant}
       sx={{
-        background: "brand.default",
-        "-webkit-background-clip": "text",
-        "-webkit-text-fill-color": "transparent",
+        background,
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
         backgroundClip: "text",
         textFillColor: "transparent",
         ...styles,
