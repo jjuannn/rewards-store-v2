@@ -36,12 +36,7 @@ const cardsInformation = [
 
 const PresentationCards: FC = () => {
   return (
-    <Flex
-      bg="specials.sectionBg"
-      bottom="0px"
-      // height={"100%"}
-      padding="20px"
-    >
+    <Flex bg="specials.sectionBg" height={"100%"} padding="20px">
       <Stack spacing={"10px"} direction={{ base: "column", md: "row" }}>
         {cardsInformation.map((data) => {
           return <PresentationCard {...data} key={data.index} />;
