@@ -10,7 +10,7 @@ const MainImage: FC = () => {
       position="relative"
       top="33px"
       backgroundImage="linear-gradient(90deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%)"
-      backgroundSize="100% 87%"
+      backgroundSize="100% 87.4%"
       backgroundPosition={"center center"}
       backgroundRepeat="no-repeat"
     >
