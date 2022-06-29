@@ -16,9 +16,9 @@ const MainImage: FC = () => {
     >
       <Image
         src={heroIllustration.src}
-        width={{ base: "580px", lg: "897px" }}
-        minWidth={{ base: "580px", lg: "897px" }}
-        height={{ base: "518px", lg: "795px" }}
+        width={{ base: "580px", xl: "897px" }}
+        minWidth={{ base: "580px", xl: "897px" }}
+        height={{ base: "518px", xl: "795px" }}
         alt=""
       />
     </Flex>
