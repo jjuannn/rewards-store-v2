@@ -1,9 +1,8 @@
 import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import ColoredText from "components/ColoredText";
-import { MainImage } from "components/MainImage";
-import type { NextPage } from "next";
+import { FC } from "react";
 
-const PresentationTitle: NextPage = () => {
+const PresentationTitle: FC = () => {
   return (
     <Flex
       margin="43px"
