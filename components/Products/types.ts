@@ -1,4 +1,5 @@
 enum ProductsCategories {
+  ALL_PRODUCTS = "All Products",
   LAPTOPS = "Laptops",
   CAMERAS = "Cameras",
   SMART_HOME = "Smart Home",
