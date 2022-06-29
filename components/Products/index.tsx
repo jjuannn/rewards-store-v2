@@ -7,9 +7,14 @@ import { ProductsCategories, SortOrders } from "./types";
 import { ProductCard } from "./Cards";
 
 const ProductsSection: FC = () => {
-  const [filter, setFilter] = useState<string>(ProductsCategories.ALL_PRODUCTS);
-  const [sortOrder, setSortOrder] = useState(SortOrders.MOST_RECENT);
-  const [productsState, setProductsState] = useState(products);
+  const [filter, setFilter] = useState<ProductsCategories>(
+    ProductsCategories.ALL_PRODUCTS
+  );
+  const [sortOrder, setSortOrder] = useState<SortOrders>(
+    SortOrders.MOST_RECENT
+  );
+  // to-do tipar esto cuando fetchee los products posta
+  const [productsState, setProductsState] = useState<any[]>(products);
 
   const filterProductsByCategories = () => {
     if (filter === ProductsCategories.ALL_PRODUCTS) {
