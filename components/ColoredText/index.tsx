@@ -1,5 +1,5 @@
 import { ComponentWithAs, HeadingProps, TextProps } from "@chakra-ui/react";
-import { FC } from "react";
+import { CSSProperties, FC } from "react";
 
 interface IColoredTextProps {
   TextElement: ComponentWithAs<any, HeadingProps | TextProps>;
@@ -11,7 +11,7 @@ interface IColoredTextProps {
     | "brand.hover"
     | "specials.illustrationBg"
     | "sectionBg";
-  styles?: any;
+  styles?: CSSProperties;
 }
 
 const ColoredText: FC<IColoredTextProps> = ({
