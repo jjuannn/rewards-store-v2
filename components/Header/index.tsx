@@ -1,18 +1,10 @@
 import { FC } from "react";
-import {
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-} from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import brandLogo from "assets/icons/aerolab-logo-2.svg";
 import dropdownLogo from "assets/icons/aeropay-1.svg";
+import { CollapsibleWindow } from "./Collapsible";
+import ColoredText from "components/ColoredText";
 
 const Header: FC = () => {
   return (
@@ -25,25 +17,24 @@ const Header: FC = () => {
     >
       <Image src={brandLogo} width={"38.77px"} height={"36px"} alt="logo" />
       <Flex
+        borderRadius="16px"
+        border="2px solid"
+        borderColor="neutrals.300"
         width={"143px"}
         height={"40px"}
         padding={"8px 16px"}
-        borderRadius={"16px"}
+        alignItems="center"
       >
-        <Image src={dropdownLogo} width={"20px"} height={"24px"} alt="logo" />
-        <Text marginLeft={"8px"}>3000</Text>
-        <Menu>
-          {({ isOpen }) => (
-            <>
-              <MenuButton isActive={isOpen} as={Text}>
-                {isOpen ? "V" : "A"}
-              </MenuButton>
-              <MenuList>
-                <Box>lorem ipsum asdbbbbb</Box>
-              </MenuList>
-            </>
-          )}
-        </Menu>
+        <Image src={dropdownLogo} width={"25px"} height={"25px"} alt="logo" />
+        <ColoredText
+          size={{ base: "desktopL1" }}
+          variant="default"
+          text="2000"
+          TextElement={Text}
+          styles={{ marginLeft: "8px", display: "flex" }}
+        />
+
+        <CollapsibleWindow />
       </Flex>
     </Flex>
   );
