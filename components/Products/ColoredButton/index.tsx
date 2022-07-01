@@ -4,7 +4,7 @@ import { FC, CSSProperties } from "react";
 interface IColoredButtonProps {
   text: string;
   styles?: CSSProperties;
-  isActive: boolean;
+  isActive?: boolean;
   onClick: () => any;
 }
 
@@ -16,7 +16,7 @@ const ColoredButton: FC<IColoredButtonProps> = ({
 }) => {
   return (
     <Button
-      borderRadius={"12px"}
+      borderRadius={"16px"}
       onClick={onClick}
       colorScheme={isActive ? "brand.hover" : "brand.light2"}
       bg={isActive ? "brand.default" : "brand.light"}

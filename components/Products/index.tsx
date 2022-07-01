@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Stack } from "@chakra-ui/react";
 import ColoredText from "components/ColoredText";
 import { ProductsSelect } from "./Filter";
 import { SortFilter } from "./Sort";
@@ -57,9 +57,18 @@ const ProductsSection: FC = () => {
         <ProductsSelect setFilter={setFilter} />
         <SortFilter sortOrder={sortOrder} changeSortOrder={setSortOrder} />
         {filter}
-        {productsState.map((product) => {
-          return <ProductCard key={product._id} {...product} />;
-        })}
+        <Grid
+          gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
+          gridGap="20px"
+          justifyContent="center"
+          alignItems="center"
+          justifyItems={"center"}
+          marginTop="30px"
+        >
+          {productsState.map((product) => {
+            return <ProductCard key={product._id} {...product} />;
+          })}
+        </Grid>
       </Box>
     </>
   );
