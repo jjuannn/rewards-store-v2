@@ -1,9 +1,9 @@
 import { Box, Flex } from "@chakra-ui/react";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import Header from "components/Header";
 
 interface ILayoutProps {
-  children: ReactNode;
+  children: JSX.Element;
 }
 
 const AppLayout: FC<ILayoutProps> = ({ children }) => {
