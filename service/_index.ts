@@ -1,4 +1,4 @@
-import { Axios } from "axios";
+import AXIOS from "axios";
 
 const headers = {
   "Content-Type": "application/json",
@@ -6,7 +6,7 @@ const headers = {
   Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
 };
 
-const axios = new Axios({
+const axios = AXIOS.create({
   baseURL: "https://coding-challenge-api.aerolab.co",
   headers,
 });
