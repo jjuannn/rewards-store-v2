@@ -15,7 +15,7 @@ async function fetchUserData(): Promise<User> {
 
 async function addUserPoints(amount: number): Promise<any> {
   try {
-    const res = await axios.post("/user/poins", { amount });
+    const res = await axios.post("/user/points", { amount });
     const data = JSON.parse(res.data);
     return data;
   } catch (err) {}
