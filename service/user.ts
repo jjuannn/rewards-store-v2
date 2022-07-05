@@ -11,10 +11,10 @@ async function fetchUserData(): Promise<User> {
   }
 }
 
-async function addUserPoints(amount: number): Promise<any> {
+async function addUserPoints(amount: number): Promise<number> {
   try {
     const res = await axios.post("/user/points", { amount });
-    return res.data;
+    return res.data["New Points"];
   } catch (err: any) {
     throw new Error(err.message);
   }
