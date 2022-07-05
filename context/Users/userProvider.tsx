@@ -5,13 +5,11 @@ import { userReducer } from "./userReducer";
 
 export interface IContextValues {
   userData: { loading: boolean; data: null | User; error: any };
-  userRedeemProducts: { loading: boolean; success: boolean; error: any };
   userAddCoins: { loading: boolean; success: boolean; error: any };
 }
 
 const INITIAL_VALUES: IContextValues = {
   userData: { loading: false, data: null, error: null },
-  userRedeemProducts: { loading: false, success: false, error: null },
   userAddCoins: { loading: false, success: false, error: null },
 };
 
