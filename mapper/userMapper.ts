@@ -6,8 +6,8 @@ interface IApiResponse {
   points: number;
 }
 
-function userMapper(params: IApiResponse) {
-  const { _id, name, points } = params;
+function userMapper(apiResponse: IApiResponse): User {
+  const { _id, name, points } = apiResponse;
   return new User(_id, name, points);
 }
 
