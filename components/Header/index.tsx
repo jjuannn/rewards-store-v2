@@ -1,12 +1,20 @@
-import { FC } from "react";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { FC, useEffect } from "react";
+import { Flex, Spinner, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import brandLogo from "assets/icons/aerolab-logo-2.svg";
 import dropdownLogo from "assets/icons/aeropay-1.svg";
 import { CollapsibleWindow } from "./Collapsible";
 import ColoredText from "components/ColoredText";
+import { useUser } from "hooks/useUser";
+import { Toast } from "components/Toast";
 
 const Header: FC = () => {
+  const { userData, getUserData } = useUser();
+
+  useEffect(() => {
+    getUserData();
+  }, []);
+
   return (
     <Flex
       as="header"
@@ -26,18 +34,19 @@ const Header: FC = () => {
         alignItems="center"
       >
         <Image src={dropdownLogo} width={"25px"} height={"25px"} alt="logo" />
-        <ColoredText
-          size={{ base: "desktopL1" }}
-          variant="default"
-          text="2000"
-          TextElement={Text}
-          styles={{ marginLeft: "8px", display: "flex" }}
-        />
-
+        {userData.loading && <Spinner colorScheme={"red"} marginX="auto" />}
+        {userData.data && (
+          <ColoredText
+            size={{ base: "desktopL1" }}
+            variant="default"
+            text={String(userData.data.points)}
+            TextElement={Text}
+            styles={{ marginLeft: "8px", display: "flex" }}
+          />
+        )}
         <CollapsibleWindow />
       </Flex>
     </Flex>
   );
 };
-/** rightIcon={<ChevronDownIcon />} */
 export default Header;

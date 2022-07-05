@@ -8,20 +8,19 @@ import {
   Flex,
   Image,
   Button,
+  Spinner,
 } from "@chakra-ui/react";
 import { AeroCard } from "../AeroCard";
 import arrowLogo from "assets/icons/chevron-default.svg";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
 import { ColoredButton } from "components/Products/ColoredButton";
+import { useUser } from "hooks/useUser";
 
 const CollapsibleWindow: FC = () => {
-  const [amountOfPoints, setAmountOfPoints] = useState<
-    "1000" | "5000" | "7500"
-  >("1000");
-
-  useEffect(() => {
-    console.log({ amountOfPoints });
-  }, [amountOfPoints]);
+  const { userAddCoins, addPoints } = useUser();
+  const [amountOfPoints, setAmountOfPoints] = useState<1000 | 5000 | 7500>(
+    1000
+  );
 
   return (
     <Menu>
@@ -68,9 +67,9 @@ const CollapsibleWindow: FC = () => {
                     marginRight: "5px",
                   }}
                   text="1000"
-                  isActive={amountOfPoints === "1000"}
+                  isActive={amountOfPoints === 1000}
                   onClick={() => {
-                    setAmountOfPoints(() => "1000");
+                    setAmountOfPoints(() => 1000);
                   }}
                 />
                 <ColoredButton
@@ -81,9 +80,9 @@ const CollapsibleWindow: FC = () => {
                     marginRight: "5px",
                   }}
                   text="5000"
-                  isActive={amountOfPoints === "5000"}
+                  isActive={amountOfPoints === 5000}
                   onClick={() => {
-                    setAmountOfPoints(() => "5000");
+                    setAmountOfPoints(() => 5000);
                   }}
                 />
                 <ColoredButton
@@ -94,9 +93,9 @@ const CollapsibleWindow: FC = () => {
                     marginRight: "5px",
                   }}
                   text="7500"
-                  isActive={amountOfPoints === "7500"}
+                  isActive={amountOfPoints === 7500}
                   onClick={() => {
-                    setAmountOfPoints(() => "7500");
+                    setAmountOfPoints(() => 7500);
                   }}
                 />
               </Flex>
@@ -104,20 +103,27 @@ const CollapsibleWindow: FC = () => {
                 colorScheme={"brand.default"}
                 bg="brand.default"
                 _hover={{ bg: "brand.hover" }}
-                // disabled -- va cambiando segun sea loading o no
+                disabled={userAddCoins.loading ? true : false}
                 padding="24px"
                 borderRadius={"16px"}
                 marginTop="16px"
                 width="100%"
+                onClick={() => addPoints(amountOfPoints)}
               >
-                <Image
-                  marginX={"5px"}
-                  src={aeropayLogo.src}
-                  width="20px"
-                  height={"20px"}
-                  alt=""
-                />{" "}
-                Add Points
+                {userAddCoins.loading ? (
+                  <Spinner colorScheme="purple" />
+                ) : (
+                  <>
+                    <Image
+                      marginX={"5px"}
+                      src={aeropayLogo.src}
+                      width="20px"
+                      height={"20px"}
+                      alt=""
+                    />{" "}
+                    Add Points
+                  </>
+                )}
               </Button>
             </Flex>
           </MenuList>
