@@ -3,11 +3,12 @@ import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
 interface IProductCardProps {
   name: string;
+  category: string;
   cost: number;
-  img: { url: string; hdUrl: string };
+  img: string;
 }
 
-const ProductCard: FC<IProductCardProps> = ({ name, cost, img }) => {
+const ProductCard: FC<IProductCardProps> = ({ name, cost, img, category }) => {
   return (
     <Box maxWidth="350px" minW={"300px"} marginX="10px" marginY="30px">
       <Flex
@@ -23,7 +24,7 @@ const ProductCard: FC<IProductCardProps> = ({ name, cost, img }) => {
             width={"280px"}
             height="205px"
             margin={"auto"}
-            src={img.url}
+            src={img}
             alt=""
           />
         </Flex>
@@ -41,7 +42,7 @@ const ProductCard: FC<IProductCardProps> = ({ name, cost, img }) => {
             {name}
           </Text>
           <Text size="mobileL2" variant="allCapsL2" color="neutrals.600">
-            {name}
+            {category}
           </Text>
         </Box>
       </Flex>
