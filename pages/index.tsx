@@ -27,10 +27,17 @@ const Home: NextPage<IHomeProps> = ({ products }) => {
 
 export async function getStaticProps() {
   const products = await getProducts();
+  const stringifiedProducts = JSON.stringify(products);
+
+  /** NOTE: Passing 'products' directly to the props object
+   *  was causing an error with Next parsing the object.
+   *  But i don't know why if i stringify 'products' first
+   *  and then parse it to a JSON again it works correctly
+   */
 
   return {
     props: {
-      products,
+      products: JSON.parse(stringifiedProducts),
     },
   };
 }
