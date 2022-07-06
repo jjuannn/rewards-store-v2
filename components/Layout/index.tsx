@@ -3,7 +3,7 @@ import { FC } from "react";
 import Header from "components/Header";
 
 interface ILayoutProps {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 const AppLayout: FC<ILayoutProps> = ({ children }) => {
@@ -18,4 +18,4 @@ const AppLayout: FC<ILayoutProps> = ({ children }) => {
   );
 };
 
-export default AppLayout;
+export { AppLayout };
