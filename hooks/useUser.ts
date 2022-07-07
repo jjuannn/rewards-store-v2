@@ -1,12 +1,15 @@
 import { PointsActions, UserActions } from "context/Users/userActions";
 import { UserContext } from "context/Users/userContext";
-import { stringify } from "querystring";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { addUserPoints, fetchUserData } from "service/user";
 
 function useUser() {
   const { userState, dispatch } = useContext(UserContext);
   const { userAddCoins, userData } = userState;
+
+  const setUserData = (payload: any) => {
+    dispatch({ type: UserActions.SET_USER_SUCCESS, payload });
+  };
 
   const getUserData = async () => {
     dispatch({ type: UserActions.SET_USER_LOADING });
@@ -17,7 +20,6 @@ function useUser() {
       dispatch({ type: UserActions.SET_USER_FAILURE, payload: err });
     }
   };
-
   const addPoints = async (amount: number) => {
     dispatch({ type: PointsActions.ADD_POINTS_LOADING });
     try {
@@ -31,8 +33,7 @@ function useUser() {
       dispatch({ type: PointsActions.ADD_POINTS_FAILURE, payload: err });
     }
   };
-
-  return { getUserData, addPoints, userData, userAddCoins };
+  return { setUserData, getUserData, addPoints, userData, userAddCoins };
 }
 
 export { useUser };
