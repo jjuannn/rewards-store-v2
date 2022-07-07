@@ -6,7 +6,6 @@ import dropdownLogo from "assets/icons/aeropay-1.svg";
 import { CollapsibleWindow } from "./Collapsible";
 import ColoredText from "components/ColoredText";
 import { useUser } from "hooks/useUser";
-import { Toast } from "components/Toast";
 
 const Header: FC = () => {
   const { userData, getUserData } = useUser();

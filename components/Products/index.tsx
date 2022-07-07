@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
-import { Box, Flex, Grid, Heading, Stack, useToast } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, useToast } from "@chakra-ui/react";
 import ColoredText from "components/ColoredText";
 import { ProductsSelect } from "./Filter";
 import { SortFilter } from "./Sort";

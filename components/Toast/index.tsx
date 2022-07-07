@@ -1,5 +1,5 @@
-import { FC, useRef } from "react";
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { FC } from "react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 import successLogo from "assets/icons/system-success.svg";
 import errorLogo from "assets/icons/system-error.svg";
 import crossLogo from "assets/icons/cross-active.svg";

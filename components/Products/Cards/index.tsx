@@ -1,8 +1,7 @@
-import { FC, useCallback, useEffect, useRef } from "react";
-import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
+import { FC } from "react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
 import { useProducts } from "hooks/useProducts";
-import { Toast } from "components/Toast";
 import { useUser } from "hooks/useUser";
 interface IProductCardProps {
   id: string;
