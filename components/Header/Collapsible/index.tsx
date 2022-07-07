@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import {
   Menu,
   MenuButton,
@@ -9,18 +9,61 @@ import {
   Image,
   Button,
   Spinner,
+  useToast,
 } from "@chakra-ui/react";
 import { AeroCard } from "../AeroCard";
 import arrowLogo from "assets/icons/chevron-default.svg";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
 import { ColoredButton } from "components/Products/ColoredButton";
 import { useUser } from "hooks/useUser";
+import { Toast } from "components/Toast";
 
 const CollapsibleWindow: FC = () => {
   const { userAddCoins, addPoints } = useUser();
   const [amountOfPoints, setAmountOfPoints] = useState<1000 | 5000 | 7500>(
     1000
   );
+
+  const toast = useToast();
+  const toastIdRef = useRef<any>();
+
+  const closeToast = useCallback(() => {
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
+  }, [toastIdRef, toast]);
+
+  useEffect(() => {
+    if (userAddCoins.success) {
+      toastIdRef.current = toast({
+        duration: 2000,
+        position: "bottom-left",
+        render: () => (
+          <Toast
+            text="Points added successfully. We added the balance to your account"
+            status="success"
+            onClose={closeToast}
+          />
+        ),
+      });
+    }
+  }, [userAddCoins.success, toast, closeToast]);
+
+  useEffect(() => {
+    if (userAddCoins.error) {
+      toastIdRef.current = toast({
+        duration: 2000,
+        position: "bottom-left",
+        render: () => (
+          <Toast
+            text={userAddCoins.error.message}
+            status="failure"
+            onClose={closeToast}
+          />
+        ),
+      });
+    }
+  }, [userAddCoins.error, toast, closeToast]);
 
   return (
     <Menu>

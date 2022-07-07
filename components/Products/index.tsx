@@ -1,11 +1,13 @@
-import { FC, useEffect, useState } from "react";
-import { Box, Flex, Grid, Heading, Stack } from "@chakra-ui/react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { Box, Flex, Grid, Heading, Stack, useToast } from "@chakra-ui/react";
 import ColoredText from "components/ColoredText";
 import { ProductsSelect } from "./Filter";
 import { SortFilter } from "./Sort";
 import { ProductsCategories, SortOrders } from "./types";
 import { ProductCard } from "./Cards";
 import { Product } from "entity/product";
+import { Toast } from "components/Toast";
+import { useProducts } from "hooks/useProducts";
 
 interface IProductsSectionProps {
   products: Product[];
@@ -45,6 +47,53 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
     const orderedProducts = sortProducts();
     setProductsState(() => orderedProducts);
   }, [sortOrder, filter]);
+
+  const toast = useToast();
+  const toastIdRef = useRef<any>();
+  // toastId to prevent duplicated toasts
+  const toastId = "redeem-success-toast";
+
+  const closeToast = useCallback(() => {
+    if (toastIdRef.current) {
+      toast.close(toastIdRef.current);
+    }
+  }, [toastIdRef, toast]);
+
+  const { redeemProductState } = useProducts();
+
+  useEffect(() => {
+    if (redeemProductState.success) {
+      if (!toast.isActive(toastId)) {
+        toastIdRef.current = toast({
+          duration: 2000,
+          position: "bottom-left",
+          render: () => (
+            <Toast
+              text="Product redeemed successfully. We deducted the amount from your account "
+              status="success"
+              onClose={closeToast}
+            />
+          ),
+        });
+      }
+    }
+  }, [redeemProductState.success, toast, closeToast]);
+
+  useEffect(() => {
+    if (redeemProductState.error) {
+      toastIdRef.current = toast({
+        duration: 2000,
+        position: "bottom-left",
+        render: () => (
+          <Toast
+            text={redeemProductState.error.message}
+            status="failure"
+            onClose={closeToast}
+          />
+        ),
+      });
+    }
+  }, [redeemProductState.error, toast, closeToast]);
 
   return (
     <>
