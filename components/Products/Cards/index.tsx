@@ -1,14 +1,29 @@
-import { FC } from "react";
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { FC, useCallback, useEffect, useRef } from "react";
+import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
+import { useProducts } from "hooks/useProducts";
+import { Toast } from "components/Toast";
+import { useUser } from "hooks/useUser";
 interface IProductCardProps {
+  id: string;
   name: string;
   category: string;
   cost: number;
   img: string;
 }
 
-const ProductCard: FC<IProductCardProps> = ({ name, cost, img, category }) => {
+const ProductCard: FC<IProductCardProps> = ({
+  id,
+  name,
+  cost,
+  img,
+  category,
+}) => {
+  const { redeemProduct, redeemProductState } = useProducts();
+  const { userData } = useUser();
+
+  const ableToRedeem = userData.data?.points! > cost;
+
   return (
     <Box maxWidth="350px" minW={"300px"} marginX="10px" marginY="30px">
       <Flex
@@ -48,23 +63,31 @@ const ProductCard: FC<IProductCardProps> = ({ name, cost, img, category }) => {
       </Flex>
       <Button
         colorScheme={"brand.default"}
-        bg="brand.default"
-        _hover={{ bg: "brand.hover" }}
-        // disabled -- va cambiando segun sea loading o no
+        bg={ableToRedeem ? "brand.default" : "neutrals.500"}
+        _hover={{ bg: ableToRedeem ? "brand.default" : "neutrals.600" }}
+        disabled={redeemProductState.loading || !ableToRedeem}
         padding="24px"
         borderRadius={"16px"}
         marginTop="16px"
         width="100%"
+        onClick={() => redeemProduct(id, cost)}
+        color={ableToRedeem ? "white" : "brand.900"}
       >
-        Redeem for{" "}
-        <Image
-          marginX={"5px"}
-          src={aeropayLogo.src}
-          width="20px"
-          height={"20px"}
-          alt=""
-        />{" "}
-        {cost}
+        {ableToRedeem ? (
+          <>
+            Redeem for{" "}
+            <Image
+              marginX={"5px"}
+              src={aeropayLogo.src}
+              width="20px"
+              height={"20px"}
+              alt=""
+            />{" "}
+            {cost}
+          </>
+        ) : (
+          <>You need {cost} points</>
+        )}
       </Button>
     </Box>
   );
