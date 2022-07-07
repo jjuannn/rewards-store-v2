@@ -43,9 +43,10 @@ const PresentationTitle: FC = () => {
       </Text>
       <Button
         height={"64px"}
-        width="303px"
+        width="305px"
         background="brand.default"
         _hover={{ background: "brand.hover" }}
+        colorScheme={"brand.default"}
         color="white"
         padding="20px 48px"
         borderRadius={"28px"}
