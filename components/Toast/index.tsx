@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import successLogo from "assets/icons/system-success.svg";
 import errorLogo from "assets/icons/system-error.svg";
@@ -7,13 +7,16 @@ import crossLogo from "assets/icons/cross-active.svg";
 interface IToastProps {
   text: string;
   status: "success" | "failure";
+  onClose: () => void;
 }
 
-const Toast: FC<IToastProps> = ({ text, status }) => {
+const Toast: FC<IToastProps> = ({ text, status, onClose }) => {
   const borderColor = status === "success" ? "green.default" : "red.default";
   const imageSource = status === "success" ? successLogo.src : errorLogo.src;
+
   return (
     <Flex
+      background="neutrals.100"
       width={"100%"}
       maxWidth="500px"
       padding="24px"
@@ -30,13 +33,12 @@ const Toast: FC<IToastProps> = ({ text, status }) => {
           alt=""
         />
         <Text size="mobileL1" variant="default" color="neutrals.600">
-          <Text as="span" color="neutrals.900">
-            Moto G5
-          </Text>{" "}
-          redeemed successfully
+          {text}
         </Text>
       </Flex>
       <Image
+        _hover={{ cursor: "pointer" }}
+        onClick={onClose}
         marginLeft={"auto"}
         src={crossLogo.src}
         width="20px"
