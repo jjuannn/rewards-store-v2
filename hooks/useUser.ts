@@ -1,5 +1,6 @@
 import { PointsActions, UserActions } from "context/Users/userActions";
 import { UserContext } from "context/Users/userContext";
+import { User } from "entity/user";
 import { useContext } from "react";
 import { addUserPoints, fetchUserData } from "service/user";
 
@@ -27,7 +28,7 @@ function useUser() {
       dispatch({ type: PointsActions.ADD_POINTS_SUCCESS });
       dispatch({
         type: UserActions.SET_USER_SUCCESS,
-        payload: { ...userData, points: newPoints },
+        payload: { ...(userData.data as User), points: newPoints },
       });
     } catch (err) {
       dispatch({ type: PointsActions.ADD_POINTS_FAILURE, payload: err });

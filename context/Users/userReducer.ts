@@ -1,16 +1,22 @@
+import { User } from "entity/user";
 import { UserActions, PointsActions } from "./userActions";
 import { IContextValues } from "./userProvider";
 
 export type UserAction =
-  // to-do tipar esto mejor
-  { type: UserActions | PointsActions; payload?: any };
+  // to-do tipar esto mejor { type: UserActions | PointsActions; payload?: any };
+  | { type: UserActions.SET_USER_LOADING }
+  // tipar estos dos de aca abajo
+  | { type: UserActions.SET_USER_SUCCESS; payload: User }
+  | { type: UserActions.SET_USER_FAILURE; payload: any }
+  | { type: PointsActions.ADD_POINTS_LOADING }
+  | { type: PointsActions.ADD_POINTS_SUCCESS }
+  | { type: PointsActions.ADD_POINTS_FAILURE; payload: any };
 
 const userReducer = (
   state: IContextValues,
   action: UserAction
 ): IContextValues => {
-  const { type, payload } = action;
-
+  const { type } = action;
   switch (type) {
     case UserActions.SET_USER_LOADING:
       return {
@@ -26,7 +32,7 @@ const userReducer = (
         ...state,
         userData: {
           loading: false,
-          data: payload,
+          data: action.payload,
           error: null,
         },
       };
@@ -36,7 +42,7 @@ const userReducer = (
         userData: {
           loading: false,
           data: null,
-          error: payload,
+          error: action.payload,
         },
       };
     case PointsActions.ADD_POINTS_LOADING:
@@ -63,7 +69,7 @@ const userReducer = (
         userAddCoins: {
           loading: false,
           success: false,
-          error: payload,
+          error: action.payload,
         },
       };
     default:

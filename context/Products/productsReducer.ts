@@ -3,13 +3,15 @@ import { IContextValues } from "./productsProvider";
 
 export type ProductAction =
   // to-do tipar esto mejor
-  { type: ProductsActions; payload?: any };
+  | { type: ProductsActions.REDEEM_PRODUCT_LOADING }
+  | { type: ProductsActions.REDEEM_PRODUCT_SUCCESS }
+  | { type: ProductsActions.REDEEM_PRODUCT_FAILURE; payload: any };
 
 const productsReducer = (
   state: IContextValues,
   action: ProductAction
 ): IContextValues => {
-  const { type, payload } = action;
+  const { type } = action;
 
   switch (type) {
     case ProductsActions.REDEEM_PRODUCT_LOADING:
@@ -36,7 +38,7 @@ const productsReducer = (
         redeemProduct: {
           loading: false,
           success: false,
-          error: payload,
+          error: action.payload,
         },
       };
     default:
