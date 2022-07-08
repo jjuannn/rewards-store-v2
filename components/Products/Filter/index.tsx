@@ -19,9 +19,14 @@ const options = [
 interface ISelectOptions {
   currentFilter: ProductsCategories;
   setFilter: Dispatch<SetStateAction<ProductsCategories>>;
+  resetPagination: (page: number) => void;
 }
 
-const ProductsSelect: FC<ISelectOptions> = ({ setFilter, currentFilter }) => {
+const ProductsSelect: FC<ISelectOptions> = ({
+  setFilter,
+  currentFilter,
+  resetPagination,
+}) => {
   return (
     <Select
       borderRadius="16px"
@@ -29,6 +34,7 @@ const ProductsSelect: FC<ISelectOptions> = ({ setFilter, currentFilter }) => {
       color="#8FA3BF"
       fontWeight={"600"}
       onChange={(e) => {
+        resetPagination(1);
         setFilter(e.target.value as ProductsCategories);
       }}
     >

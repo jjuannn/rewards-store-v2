@@ -10,6 +10,7 @@ import { Flex, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import { PresentationCard } from "./Cards";
 import { BottomDivider } from "./BottomDivider";
+import { TopDivider } from "components/PresentationCards/TopDivider";
 
 const cardsInformation = [
   {
@@ -46,8 +47,9 @@ const PresentationCards: FC = () => {
       direction="column"
       position={"relative"}
     >
+      <TopDivider />
       <Stack
-        marginBottom="70px"
+        marginY="70px"
         spacing={"10px"}
         direction={{ base: "column", lg: "row" }}
       >

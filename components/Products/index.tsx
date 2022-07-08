@@ -122,7 +122,11 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
         <Heading size={{ base: "mobileL2" }}> PRODUCTS</Heading>
       </Flex>
       <Box paddingX={"20px"}>
-        <ProductsSelect setFilter={setFilter} currentFilter={filter} />
+        <ProductsSelect
+          resetPagination={paginate}
+          setFilter={setFilter}
+          currentFilter={filter}
+        />
         <SortFilter
           resetPagination={paginate}
           sortOrder={sortOrder}

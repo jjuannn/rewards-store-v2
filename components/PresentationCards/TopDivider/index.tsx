@@ -7,6 +7,7 @@ const TopDivider: FC = () => {
         overflow: "hidden",
         position: "absolute",
         width: "100vw",
+        top: "0px",
       }}
     >
       <svg
