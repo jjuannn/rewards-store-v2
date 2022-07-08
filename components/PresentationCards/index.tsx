@@ -9,6 +9,7 @@ import walkthroughIcon3 from "assets/icons/walkthrough-2.svg";
 import { Flex, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import { PresentationCard } from "./Cards";
+import { BottomDivider } from "./BottomDivider";
 
 const cardsInformation = [
   {
@@ -42,12 +43,19 @@ const PresentationCards: FC = () => {
       padding="20px"
       justifyContent="center"
       alignItems="center"
+      direction="column"
+      position={"relative"}
     >
-      <Stack spacing={"10px"} direction={{ base: "column", lg: "row" }}>
+      <Stack
+        marginBottom="70px"
+        spacing={"10px"}
+        direction={{ base: "column", lg: "row" }}
+      >
         {cardsInformation.map((data) => {
           return <PresentationCard {...data} key={data.index} />;
         })}
       </Stack>
+      <BottomDivider />
     </Flex>
   );
 };
