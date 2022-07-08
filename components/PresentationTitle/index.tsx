@@ -5,10 +5,11 @@ import { FC } from "react";
 const PresentationTitle: FC = () => {
   return (
     <Flex
-      margin="43px"
       justifyContent={"center"}
       direction="column"
       alignItems={"center"}
+      maxWidth="300px"
+      margin="auto"
     >
       <Text
         textTransform={"uppercase"}
@@ -21,11 +22,11 @@ const PresentationTitle: FC = () => {
       <ColoredText
         TextElement={Heading}
         text="TECH"
-        size={{ base: "mobileL1", lg: "desktopL1" }}
+        size={{ base: "mobileL1" }}
       />
       <Heading
         marginBottom={"20px"}
-        size={{ base: "mobileL1", lg: "desktopL1" }}
+        size={{ base: "mobileL1" }}
         textTransform={"uppercase"}
       >
         ZONE

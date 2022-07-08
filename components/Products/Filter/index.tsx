@@ -29,6 +29,7 @@ const ProductsSelect: FC<ISelectOptions> = ({
 }) => {
   return (
     <Select
+      maxWidth={"500px"}
       borderRadius="16px"
       size="lg"
       color="#8FA3BF"
