@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { FC } from "react";
 import Header from "components/Header";
+import { Footer } from "components/Footer";
 
 interface ILayoutProps {
   children: JSX.Element | JSX.Element[];
@@ -13,7 +14,7 @@ const AppLayout: FC<ILayoutProps> = ({ children }) => {
       <Flex direction="column" as="main" flex="1">
         {children}
       </Flex>
-      <footer>footer</footer>
+      <Footer />
     </Box>
   );
 };
