@@ -17,7 +17,10 @@ const Header: FC = () => {
   return (
     <Flex
       as="header"
-      height={"128px"}
+      height={"130px"}
+      margin="auto"
+      width={"100%"}
+      maxWidth="1000px"
       padding={"40px 20px"}
       justifyContent="space-between"
       alignItems={"center"}

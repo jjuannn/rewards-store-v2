@@ -122,21 +122,23 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
         <Heading size={{ base: "mobileL2" }}> PRODUCTS</Heading>
       </Flex>
       <Box paddingX={"20px"}>
-        <ProductsSelect
-          resetPagination={paginate}
-          setFilter={setFilter}
-          currentFilter={filter}
-        />
+        <Flex alignItems={"center"} justifyContent="space-between">
+          <ProductsSelect
+            resetPagination={paginate}
+            setFilter={setFilter}
+            currentFilter={filter}
+          />
+          <Pagination
+            currentPage={currentPage}
+            paginate={paginate}
+            productsPerPage={productsPerPage}
+            totalProducts={productsState.length}
+          />
+        </Flex>
         <SortFilter
           resetPagination={paginate}
           sortOrder={sortOrder}
           changeSortOrder={setSortOrder}
-        />
-        <Pagination
-          currentPage={currentPage}
-          paginate={paginate}
-          productsPerPage={productsPerPage}
-          totalProducts={productsState.length}
         />
         <Grid
           gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
