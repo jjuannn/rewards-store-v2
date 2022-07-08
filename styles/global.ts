@@ -6,6 +6,10 @@ const styles = {
       boxSizing: "border-box",
       fontFamily: ["Montserrat !important", "sans-serif"],
     },
+    html: {
+      scrollBehavior: "smooth",
+      overflowX: "hidden",
+    },
   },
 };
 
