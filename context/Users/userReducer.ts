@@ -5,7 +5,6 @@ import { IContextValues } from "./userProvider";
 export type UserAction =
   // to-do tipar esto mejor { type: UserActions | PointsActions; payload?: any };
   | { type: UserActions.SET_USER_LOADING }
-  // tipar estos dos de aca abajo
   | { type: UserActions.SET_USER_SUCCESS; payload: User }
   | { type: UserActions.SET_USER_FAILURE; payload: any }
   | { type: PointsActions.ADD_POINTS_LOADING }
