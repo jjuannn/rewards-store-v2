@@ -4,7 +4,7 @@ enum ProductsCategories {
   CAMERAS = "Cameras",
   SMART_HOME = "Smart Home",
   AUDIO = "Audio",
-  MONITORS = "Monitors",
+  MONITORS = "Monitors & TV",
   PC_ACCESSORIES = "PC Accessories",
   GAMING = "Gaming",
   TABLETS_AND_E_READERS = "Tablets & E-readers",
