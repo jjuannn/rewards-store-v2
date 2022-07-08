@@ -8,6 +8,7 @@ import { ProductCard } from "./Cards";
 import { Product } from "entity/product";
 import { Toast } from "components/Toast";
 import { useProducts } from "hooks/useProducts";
+import { Pagination } from "./Pagination";
 
 interface IProductsSectionProps {
   products: Product[];
@@ -95,9 +96,23 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
     }
   }, [redeemProductState.error, toast, closeToast]);
 
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const productsPerPage = 16;
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentPosts = productsState.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
-      <Flex paddingX={"20px"} paddingY="30px">
+      <Flex paddingX={"20px"} paddingY="30px" id="#products-section">
         <ColoredText
           TextElement={Heading}
           size={{ base: "mobileL2" }}
@@ -107,20 +122,35 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
         <Heading size={{ base: "mobileL2" }}> PRODUCTS</Heading>
       </Flex>
       <Box paddingX={"20px"}>
-        <ProductsSelect setFilter={setFilter} />
-        <SortFilter sortOrder={sortOrder} changeSortOrder={setSortOrder} />
+        <ProductsSelect setFilter={setFilter} currentFilter={filter} />
+        <SortFilter
+          resetPagination={paginate}
+          sortOrder={sortOrder}
+          changeSortOrder={setSortOrder}
+        />
+        <Pagination
+          currentPage={currentPage}
+          paginate={paginate}
+          productsPerPage={productsPerPage}
+          totalProducts={productsState.length}
+        />
         <Grid
           gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
           gridGap="20px"
           justifyContent="center"
           alignItems="center"
           justifyItems={"center"}
-          marginTop="30px"
         >
-          {productsState.map((product) => {
+          {currentPosts.map((product) => {
             return <ProductCard key={product.id} {...product} />;
           })}
         </Grid>
+        <Pagination
+          currentPage={currentPage}
+          paginate={paginate}
+          productsPerPage={productsPerPage}
+          totalProducts={productsState.length}
+        />
       </Box>
     </>
   );

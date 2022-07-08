@@ -1,5 +1,13 @@
 import { FC } from "react";
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonSpinner,
+  Flex,
+  Image,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import aeropayLogo from "assets/icons/aeropay-3.svg";
 import { useProducts } from "hooks/useProducts";
 import { useUser } from "hooks/useUser";
@@ -72,20 +80,29 @@ const ProductCard: FC<IProductCardProps> = ({
         onClick={() => redeemProduct(id, cost)}
         color={ableToRedeem ? "white" : "brand.900"}
       >
-        {ableToRedeem ? (
+        {!redeemProductState.loading && (
           <>
-            Redeem for{" "}
-            <Image
-              marginX={"5px"}
-              src={aeropayLogo.src}
-              width="20px"
-              height={"20px"}
-              alt=""
-            />{" "}
-            {cost}
+            {ableToRedeem ? (
+              <>
+                Redeem for{" "}
+                <Image
+                  marginX={"5px"}
+                  src={aeropayLogo.src}
+                  width="20px"
+                  height={"20px"}
+                  alt=""
+                />{" "}
+                {cost}
+              </>
+            ) : (
+              <>You need {cost} points</>
+            )}
           </>
-        ) : (
-          <>You need {cost} points</>
+        )}
+        {redeemProductState.loading && (
+          <>
+            <ButtonSpinner />
+          </>
         )}
       </Button>
     </Box>

@@ -1,4 +1,4 @@
-import { Select } from "@chakra-ui/react";
+import { Select, Text } from "@chakra-ui/react";
 import { Dispatch, FC, SetStateAction } from "react";
 import { ProductsCategories } from "../types";
 
@@ -17,19 +17,35 @@ const options = [
 ];
 
 interface ISelectOptions {
+  currentFilter: ProductsCategories;
   setFilter: Dispatch<SetStateAction<ProductsCategories>>;
 }
 
-const ProductsSelect: FC<ISelectOptions> = ({ setFilter }) => {
+const ProductsSelect: FC<ISelectOptions> = ({ setFilter, currentFilter }) => {
   return (
     <Select
+      borderRadius="16px"
       size="lg"
+      color="#8FA3BF"
+      fontWeight={"600"}
       onChange={(e) => {
         setFilter(e.target.value as ProductsCategories);
       }}
     >
       {options.map((option) => {
-        return <option key={option}>{option}</option>;
+        const isFilterSelected = currentFilter === option;
+        return (
+          <option
+            style={{
+              background: isFilterSelected ? "#E6EDF7" : "",
+              color: "#8FA3BF",
+              fontWeight: "600",
+            }}
+            key={option}
+          >
+            {option}
+          </option>
+        );
       })}
     </Select>
   );

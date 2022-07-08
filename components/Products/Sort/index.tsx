@@ -6,9 +6,14 @@ import { SortOrders } from "../types";
 interface ISortOrder {
   sortOrder: string;
   changeSortOrder: Dispatch<SetStateAction<SortOrders>>;
+  resetPagination: (page: number) => void;
 }
 
-const SortFilter: FC<ISortOrder> = ({ sortOrder, changeSortOrder }) => {
+const SortFilter: FC<ISortOrder> = ({
+  sortOrder,
+  changeSortOrder,
+  resetPagination,
+}) => {
   return (
     <Flex
       overflow={{ base: "scroll", md: "hidden" }}
@@ -27,6 +32,7 @@ const SortFilter: FC<ISortOrder> = ({ sortOrder, changeSortOrder }) => {
           color: "white",
         }}
         onClick={() => {
+          resetPagination(1);
           changeSortOrder(SortOrders.MOST_RECENT);
         }}
       />
@@ -41,6 +47,7 @@ const SortFilter: FC<ISortOrder> = ({ sortOrder, changeSortOrder }) => {
           color: "white",
         }}
         onClick={() => {
+          resetPagination(1);
           changeSortOrder(SortOrders.LOWEST_PRICE);
         }}
       />
@@ -55,6 +62,7 @@ const SortFilter: FC<ISortOrder> = ({ sortOrder, changeSortOrder }) => {
           color: "white",
         }}
         onClick={() => {
+          resetPagination(1);
           changeSortOrder(SortOrders.HIGHEST_PRICE);
         }}
       />
