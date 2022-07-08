@@ -48,12 +48,20 @@ const PresentationTitle: FC = () => {
         _hover={{ background: "brand.hover" }}
         colorScheme={"brand.default"}
         color="white"
-        padding="20px 48px"
+        padding="0px"
         borderRadius={"28px"}
         gap="10px"
       >
-        <Text size="mobileL1" variant={"allCapsL1"}>
-          view all products
+        <Text
+          size="mobileL1"
+          variant={"allCapsL1"}
+          as="a"
+          href="#products-section"
+          display="block"
+          padding="1em"
+          width={"100%"}
+        >
+          VIEW ALL PRODUCTS
         </Text>
       </Button>
     </Flex>
