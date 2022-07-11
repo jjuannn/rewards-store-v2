@@ -8,12 +8,12 @@ const PresentationTitle: FC = () => {
       justifyContent={"center"}
       direction="column"
       alignItems={"center"}
-      maxWidth="300px"
-      margin="auto"
+      maxWidth={{ base: "300px", xl: "600px" }}
+      margin={{ base: "auto", xl: "0" }}
     >
       <Text
         textTransform={"uppercase"}
-        size={{ base: "mobileL1", lg: "desktopL1" }}
+        size={{ base: "mobileL1", xl: "desktopL1" }}
         variant={"allCapsL1"}
         color="neutrals.600"
       >
@@ -22,17 +22,17 @@ const PresentationTitle: FC = () => {
       <ColoredText
         TextElement={Heading}
         text="TECH"
-        size={{ base: "mobileL1" }}
+        size={{ base: "mobileL1", xl: "desktopL1" }}
       />
       <Heading
         marginBottom={"20px"}
-        size={{ base: "mobileL1" }}
+        size={{ base: "mobileL1", xl: "desktopL1" }}
         textTransform={"uppercase"}
       >
         ZONE
       </Heading>
       <Text
-        size="mobileL1"
+        size={{ base: "mobileL1", xl: "desktopL1" }}
         lineHeight={"24px"}
         fontWeight="600"
         textAlign={"center"}
@@ -54,7 +54,7 @@ const PresentationTitle: FC = () => {
         gap="10px"
       >
         <Text
-          size="mobileL1"
+          size={{ base: "mobileL1", xl: "desktopL1" }}
           variant={"allCapsL1"}
           as="a"
           href="#products-section"

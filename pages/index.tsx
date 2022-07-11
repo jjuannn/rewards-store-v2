@@ -16,7 +16,11 @@ const Home: NextPage<IHomeProps> = ({ products }) => {
   return (
     <>
       <AppLayout>
-        <Flex direction={{ base: "column", xl: "row" }}>
+        <Flex
+          direction={{ base: "column", xl: "row" }}
+          justifyContent={{ xl: "space-evenly" }}
+          marginBottom={{ xl: "100px" }}
+        >
           <PresentationTitle /> <MainImage />
         </Flex>
         <PresentationCards />

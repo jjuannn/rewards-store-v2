@@ -81,6 +81,7 @@ const CollapsibleWindow: FC = () => {
             />
           </MenuButton>
           <MenuList
+            zIndex={"300"}
             padding="0"
             width={"315px"}
             height="400px"
