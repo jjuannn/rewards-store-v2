@@ -22,6 +22,7 @@ const PresentationCard: FC<IPresentationCardProps> = ({
       direction={"column"}
       padding={"12px"}
       width="100%"
+      maxWidth={"450px"}
       height={"auto"}
       borderWidth="1px"
       borderRadius="32px"
@@ -30,12 +31,12 @@ const PresentationCard: FC<IPresentationCardProps> = ({
       bg="rgba(218, 228, 242, 0.5)"
     >
       <Box
+        height={"100%"}
         border="1px solid"
         borderRadius={"32px"}
         borderColor={"neutrals.300"}
       >
         <Box
-          width={"100%"}
           height="314px"
           backgroundImage="linear-gradient(102.47deg, #7296EB -5.34%, #EAC0E9 106.58%, #EAC0E9 106.58%)"
           backgroundSize="100% 100%"
@@ -47,7 +48,7 @@ const PresentationCard: FC<IPresentationCardProps> = ({
             margin="auto"
             height={"100%"}
             width="100%"
-            maxWidth={"300px"}
+            maxWidth={"340px"}
             src={img}
             alt=""
           />

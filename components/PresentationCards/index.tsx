@@ -49,7 +49,7 @@ const PresentationCards: FC = () => {
     >
       <TopDivider />
       <Stack
-        marginY="70px"
+        marginY={{ base: "70px", xl: "100px" }}
         spacing={"10px"}
         direction={{ base: "column", lg: "row" }}
       >
