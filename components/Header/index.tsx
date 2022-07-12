@@ -20,7 +20,7 @@ const Header: FC = () => {
       height={"130px"}
       margin="auto"
       width={"100%"}
-      maxWidth="1000px"
+      paddingX={{ xl: "5vw" }}
       padding={"40px 20px"}
       justifyContent="space-between"
       alignItems={"center"}
