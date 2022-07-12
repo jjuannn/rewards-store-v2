@@ -19,6 +19,7 @@ const cardsInformation = [
     title: "Browse",
     text: "Browse our tech catalog with more than 20 top tech products",
     icon: walkthroughIcon1.src,
+    rotate: "-3deg",
   },
   {
     index: 2,
@@ -26,6 +27,7 @@ const cardsInformation = [
     title: "Choose",
     text: "Exchange your hard earned AeroPoints for the item you want",
     icon: walkthroughIcon2.src,
+    rotate: "0deg",
   },
   {
     index: 3,
@@ -33,6 +35,7 @@ const cardsInformation = [
     title: "Enjoy",
     text: "All done, you can relax! We’ll take care of delivery of your tech item!",
     icon: walkthroughIcon3.src,
+    rotate: "3deg",
   },
 ];
 
@@ -50,7 +53,7 @@ const PresentationCards: FC = () => {
       <TopDivider />
       <Stack
         marginY={{ base: "70px", xl: "100px" }}
-        spacing={"10px"}
+        // spacing={"10px"}
         direction={{ base: "column", lg: "row" }}
       >
         {cardsInformation.map((data) => {
