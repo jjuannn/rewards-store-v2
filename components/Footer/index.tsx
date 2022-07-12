@@ -8,7 +8,7 @@ const Footer: FC = () => {
       <Image alt="" height={"32px"} src={ghLogoDefault.src} marginRight="5px" />
       <Text
         as="a"
-        href="http://github.com/rewards-store-v2"
+        href="http://github.com/jjuannn/rewards-store-v2"
         rel="norefferer"
         target="_blank"
         size="mobileL1"
