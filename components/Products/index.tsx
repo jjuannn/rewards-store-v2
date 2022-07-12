@@ -112,7 +112,14 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
 
   return (
     <>
-      <Flex paddingX={"20px"} paddingY="30px" id="#products-section">
+      <Flex
+        paddingX={{ base: "20px", xl: "5vw" }}
+        id="#products-section"
+        maxWidth={"1500px"}
+        width="100%"
+        margin="auto"
+        marginY="50px"
+      >
         <ColoredText
           TextElement={Heading}
           size={{ base: "mobileL2" }}
@@ -121,7 +128,12 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
         />{" "}
         <Heading size={{ base: "mobileL2" }}> PRODUCTS</Heading>
       </Flex>
-      <Box paddingX={"20px"}>
+      <Box
+        paddingX={{ base: "20px", xl: "5vw" }}
+        maxWidth={"1500px"}
+        width="100%"
+        margin="auto"
+      >
         <Flex alignItems={"center"} justifyContent="space-between">
           <ProductsSelect
             resetPagination={paginate}
@@ -144,6 +156,7 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
           gridTemplateColumns="repeat(auto-fill, minmax(300px, 1fr))"
           gridGap="20px"
           justifyContent="center"
+          margin="auto"
           alignItems="center"
           justifyItems={"center"}
         >
