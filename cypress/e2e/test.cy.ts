@@ -66,7 +66,7 @@ describe("Rewards Store", () => {
     cy.contains("TECH").should("be.visible");
     cy.contains("ZONE").should("be.visible");
     cy.contains(
-      `Here you’ll be able to redeem all of your hard-earned Aeropoints and exchange them for cool tech.`
+      `Here you’ll be able to redeem all of your hard-earned points and exchange them for cool tech.`
     ).should("be.visible");
     cy.contains("VIEW ALL PRODUCTS").should("be.visible");
 
@@ -96,7 +96,7 @@ describe("Rewards Store", () => {
       "Browse our tech catalog with more than 20 top tech products"
     ).should("be.visible");
     cy.contains(
-      "Exchange your hard earned AeroPoints for the item you want"
+      "Exchange your hard earned points for the item you want"
     ).should("be.visible");
     cy.contains(
       "All done, you can relax! We’ll take care of delivery of your tech item!"

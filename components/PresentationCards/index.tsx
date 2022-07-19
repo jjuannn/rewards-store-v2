@@ -25,7 +25,7 @@ const cardsInformation = [
     index: 2,
     img: walkthrough2.src,
     title: "Choose",
-    text: "Exchange your hard earned AeroPoints for the item you want",
+    text: "Exchange your hard earned points for the item you want",
     icon: walkthroughIcon2.src,
     rotate: "0deg",
   },

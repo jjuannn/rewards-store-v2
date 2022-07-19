@@ -8,7 +8,6 @@ import {
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import aeropayLogo from "assets/icons/aeropay-3.svg";
 import { useProducts } from "hooks/useProducts";
 import { useUser } from "hooks/useUser";
 interface IProductCardProps {
@@ -98,14 +97,9 @@ const ProductCard: FC<IProductCardProps> = ({
             {ableToRedeem ? (
               <>
                 Redeem for{" "}
-                <Image
-                  marginX={"5px"}
-                  src={aeropayLogo.src}
-                  width="20px"
-                  height={"20px"}
-                  alt=""
-                />
-                <span data-cy="product-card-cost">{cost}</span>
+                <span data-cy="product-card-cost" style={{ marginLeft: "5px" }}>
+                  {cost}
+                </span>
               </>
             ) : (
               <span data-cy="product-card-required-cost">

@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
 import { Flex, Link, Spinner, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import brandLogo from "assets/icons/aerolab-logo-2.svg";
-import collapsibleLogo from "assets/icons/aeropay-1.svg";
+import brandLogo from "assets/icons/gift.png";
+import collapsibleLogo from "assets/icons/reward.png";
 import { CollapsibleWindow } from "./Collapsible";
 import ColoredText from "components/ColoredText";
 import { useUser } from "hooks/useUser";

@@ -11,9 +11,9 @@ import {
   Spinner,
   useToast,
 } from "@chakra-ui/react";
-import { AeroCard } from "../AeroCard";
+import { CollapsibleCard } from "../CollapsibleCard/";
 import arrowLogo from "assets/icons/chevron-default.svg";
-import aeropayLogo from "assets/icons/aeropay-3.svg";
+import payLogo from "assets/icons/reward.png";
 import { ColoredButton } from "components/Products/ColoredButton";
 import { useUser } from "hooks/useUser";
 import { Toast } from "components/Toast";
@@ -112,7 +112,7 @@ const CollapsibleWindow: FC = () => {
               </Text>
             </Box>
             <Flex direction="column" padding="24px">
-              <AeroCard />
+              <CollapsibleCard />
               <Flex justifyContent={"space-between"} marginTop="40px">
                 <ColoredButton
                   dataCy="collapsible-points-amount-button-1000"
@@ -175,7 +175,7 @@ const CollapsibleWindow: FC = () => {
                   <>
                     <Image
                       marginX={"5px"}
-                      src={aeropayLogo.src}
+                      src={payLogo.src}
                       width="20px"
                       height={"20px"}
                       alt=""

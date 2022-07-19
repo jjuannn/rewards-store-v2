@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { Flex, Box, Image, Text } from "@chakra-ui/react";
-import aeropayLogo from "assets/icons/aeropay-2.svg";
 
-const AeroCard: FC = () => {
+const CollapsibleCard: FC = () => {
   return (
     <Flex
       data-cy="aerocard"
@@ -18,9 +17,8 @@ const AeroCard: FC = () => {
     >
       <Box width="100%" display="flex">
         <Text size="mobileL1" variant="default">
-          Aerocard
+          Card
         </Text>
-        <Image marginLeft={"auto"} src={aeropayLogo.src} width="24px" alt="" />
       </Box>
       <Box width="100%" display="flex">
         <Text size="mobileL1" variant="default">
@@ -34,4 +32,4 @@ const AeroCard: FC = () => {
   );
 };
 
-export { AeroCard };
+export { CollapsibleCard };

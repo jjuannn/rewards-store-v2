@@ -39,7 +39,7 @@ const PresentationTitle: FC = () => {
         color="neutrals.600"
         marginBottom="40px"
       >
-        Here you’ll be able to redeem all of your hard-earned Aeropoints and
+        Here you’ll be able to redeem all of your hard-earned points and
         exchange them for cool tech.
       </Text>
       <Button
