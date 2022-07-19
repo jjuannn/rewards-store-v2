@@ -7,16 +7,13 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Head>
-      <title>Tech Zone</title>
-      <ChakraProvider theme={theme}>
-        <UserContextProvider>
-          <ProductsContextProvider>
-            <Component {...pageProps} />
-          </ProductsContextProvider>
-        </UserContextProvider>
-      </ChakraProvider>
-    </Head>
+    <ChakraProvider theme={theme}>
+      <UserContextProvider>
+        <ProductsContextProvider>
+          <Component {...pageProps} />
+        </ProductsContextProvider>
+      </UserContextProvider>
+    </ChakraProvider>
   );
 }
 
