@@ -6,6 +6,7 @@ import { PresentationTitle } from "components/PresentationTitle";
 import { ProductsSection } from "components/Products";
 import { Product } from "entity/product";
 import type { NextPage } from "next";
+import Head from "next/head";
 import { getProducts } from "service/products";
 
 interface IHomeProps {
@@ -15,6 +16,9 @@ interface IHomeProps {
 const Home: NextPage<IHomeProps> = ({ products }) => {
   return (
     <>
+      <Head>
+        <title>Tech Zone</title>
+      </Head>
       <AppLayout>
         <Flex
           direction={{ base: "column", xl: "row" }}
