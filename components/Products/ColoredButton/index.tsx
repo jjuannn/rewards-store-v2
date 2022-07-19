@@ -6,6 +6,7 @@ interface IColoredButtonProps {
   styles?: CSSProperties;
   isActive?: boolean;
   onClick: () => any;
+  dataCy?: string;
 }
 
 const ColoredButton: FC<IColoredButtonProps> = ({
@@ -13,9 +14,11 @@ const ColoredButton: FC<IColoredButtonProps> = ({
   styles,
   isActive,
   onClick,
+  dataCy,
 }) => {
   return (
     <Button
+      data-cy={dataCy}
       borderRadius={"16px"}
       onClick={onClick}
       colorScheme={isActive ? "brand.hover" : "brand.light2"}
@@ -24,6 +27,7 @@ const ColoredButton: FC<IColoredButtonProps> = ({
       style={styles}
     >
       <Text
+        data-cy={`button-text-$`}
         size={{ base: "mobileL1" }}
         variant="default"
         sx={{

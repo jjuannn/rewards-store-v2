@@ -29,10 +29,16 @@ const ProductCard: FC<IProductCardProps> = ({
   const { redeemProduct, redeemProductState } = useProducts();
   const { userData } = useUser();
 
-  const ableToRedeem = userData.data?.points! > cost;
+  const ableToRedeem = userData.data?.points! >= cost;
 
   return (
-    <Box maxWidth="350px" minW={"300px"} marginX="10px" marginY="30px">
+    <Box
+      data-cy={"product-card"}
+      maxWidth="350px"
+      minW={"300px"}
+      marginX="10px"
+      marginY="30px"
+    >
       <Flex
         border="2px solid"
         borderRadius={"32px"}
@@ -56,6 +62,7 @@ const ProductCard: FC<IProductCardProps> = ({
           borderColor={"neutrals.300"}
         >
           <Text
+            data-cy={`product-card-name`}
             size="mobileL1"
             variant="default"
             lineHeight={"24px"}
@@ -63,12 +70,18 @@ const ProductCard: FC<IProductCardProps> = ({
           >
             {name}
           </Text>
-          <Text size="mobileL2" variant="allCapsL2" color="neutrals.600">
+          <Text
+            data-cy="product-card-category"
+            size="mobileL2"
+            variant="allCapsL2"
+            color="neutrals.600"
+          >
             {category}
           </Text>
         </Box>
       </Flex>
       <Button
+        data-cy="redeem-product-button"
         colorScheme={"brand.default"}
         bg={ableToRedeem ? "brand.default" : "neutrals.500"}
         _hover={{ bg: ableToRedeem ? "brand.default" : "neutrals.600" }}
@@ -91,11 +104,13 @@ const ProductCard: FC<IProductCardProps> = ({
                   width="20px"
                   height={"20px"}
                   alt=""
-                />{" "}
-                {cost}
+                />
+                <span data-cy="product-card-cost">{cost}</span>
               </>
             ) : (
-              <>You need {cost} points</>
+              <span data-cy="product-card-required-cost">
+                You need {cost} points
+              </span>
             )}
           </>
         )}

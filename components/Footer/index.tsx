@@ -7,6 +7,7 @@ const Footer: FC = () => {
     <Flex padding="50px" alignItems={"center"} justifyContent="center">
       <Image alt="" height={"32px"} src={ghLogoDefault.src} marginRight="5px" />
       <Text
+        data-cy={"footer-link"}
         as="a"
         href="http://github.com/jjuannn/rewards-store-v2"
         rel="norefferer"

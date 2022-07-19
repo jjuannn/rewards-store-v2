@@ -12,6 +12,7 @@ interface IColoredTextProps {
     | "specials.illustrationBg"
     | "sectionBg";
   styles?: CSSProperties;
+  dataCy?: string;
 }
 
 const ColoredText: FC<IColoredTextProps> = ({
@@ -21,9 +22,11 @@ const ColoredText: FC<IColoredTextProps> = ({
   variant,
   styles,
   background = "brand.default",
+  dataCy,
 }) => {
   return (
     <TextElement
+      data-cy={dataCy}
       size={size}
       variant={variant}
       sx={{

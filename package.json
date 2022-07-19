@@ -6,16 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:ui:dev": "cypress open",
+    "test:ui": "cypress run"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@types/jest": "^28.1.5",
     "axios": "^0.27.2",
+    "cypress": "^10.3.0",
     "dotenv": "^16.0.1",
     "framer-motion": "^6.3.11",
+    "json5": "^2.2.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0"

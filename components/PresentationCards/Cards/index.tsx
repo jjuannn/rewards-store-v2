@@ -60,7 +60,11 @@ const PresentationCard: FC<IPresentationCardProps> = ({
   rotate,
 }) => {
   return (
-    <CardContainer rotate={rotate} className="card">
+    <CardContainer
+      data-cy="presentation-cards"
+      rotate={rotate}
+      className="card"
+    >
       <Box
         height={"100%"}
         border="1px solid"

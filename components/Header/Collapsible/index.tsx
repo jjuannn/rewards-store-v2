@@ -69,7 +69,12 @@ const CollapsibleWindow: FC = () => {
     <Menu>
       {({ isOpen }) => (
         <>
-          <MenuButton marginLeft="auto" isActive={isOpen} as={Text}>
+          <MenuButton
+            data-cy="toggle-collapsible-logo"
+            marginLeft="auto"
+            isActive={isOpen}
+            as={Text}
+          >
             <Image
               animation="rotate 4s linear"
               transform={isOpen ? "rotate(90deg)" : "rotate(270deg)"}
@@ -90,13 +95,19 @@ const CollapsibleWindow: FC = () => {
             borderColor="neutrals.300"
             marginRight={"-18px"}
             marginTop={"15px"}
+            data-cy="collapsible-content"
           >
             <Box
               padding="16px 24px"
               borderBottom="2px solid"
               borderColor="neutrals.300"
             >
-              <Text size="mobileL1" variant="default" lineHeight={"27px"}>
+              <Text
+                data-cy="add-balance-text"
+                size="mobileL1"
+                variant="default"
+                lineHeight={"27px"}
+              >
                 Add Balance
               </Text>
             </Box>
@@ -104,6 +115,7 @@ const CollapsibleWindow: FC = () => {
               <AeroCard />
               <Flex justifyContent={"space-between"} marginTop="40px">
                 <ColoredButton
+                  dataCy="collapsible-points-amount-button-1000"
                   styles={{
                     borderRadius: "12px",
                     width: "100%",
@@ -117,6 +129,7 @@ const CollapsibleWindow: FC = () => {
                   }}
                 />
                 <ColoredButton
+                  dataCy="collapsible-points-amount-button-5000"
                   styles={{
                     borderRadius: "12px",
                     width: "100%",
@@ -130,6 +143,7 @@ const CollapsibleWindow: FC = () => {
                   }}
                 />
                 <ColoredButton
+                  dataCy="collapsible-points-amount-button-7500"
                   styles={{
                     borderRadius: "12px",
                     width: "100%",
@@ -144,6 +158,7 @@ const CollapsibleWindow: FC = () => {
                 />
               </Flex>
               <Button
+                data-cy="add-points-button"
                 colorScheme={"brand.default"}
                 bg="brand.default"
                 _hover={{ bg: "brand.hover" }}
@@ -164,7 +179,7 @@ const CollapsibleWindow: FC = () => {
                       width="20px"
                       height={"20px"}
                       alt=""
-                    />{" "}
+                    />
                     Add Points
                   </>
                 )}

@@ -29,6 +29,7 @@ const ProductsSelect: FC<ISelectOptions> = ({
 }) => {
   return (
     <Select
+      data-cy="filter-products-container"
       maxWidth={"500px"}
       borderRadius="16px"
       size="lg"
@@ -43,6 +44,7 @@ const ProductsSelect: FC<ISelectOptions> = ({
         const isFilterSelected = currentFilter === option;
         return (
           <option
+            data-cy={`filter-by-${option}`}
             style={{
               background: isFilterSelected ? "#E6EDF7" : "",
               color: "#8FA3BF",
