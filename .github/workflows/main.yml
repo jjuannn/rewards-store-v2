@@ -39,4 +39,4 @@ jobs:
       - name: Build And Deploy
         id: builddeploy
         run:
-         npx vercel --token ${VERCEL_TOKEN} --prod
+         npx vercel --token ${secrets.VERCEL_TOKEN} --prod
