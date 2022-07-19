@@ -70,7 +70,7 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
           position: "bottom-left",
           render: () => (
             <Toast
-              text="Product redeemed successfully. We deducted the amount from your account "
+              text="Product redeemed successfully. We deducted the amount from your account"
               status="success"
               onClose={closeToast}
             />
@@ -121,12 +121,15 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
         marginY="50px"
       >
         <ColoredText
+          dataCy="products-tech-text"
           TextElement={Heading}
           size={{ base: "mobileL2" }}
           text="TECH"
           styles={{ marginRight: "6px" }}
-        />{" "}
-        <Heading size={{ base: "mobileL2" }}> PRODUCTS</Heading>
+        />
+        <Heading data-cy="products-products-text" size={{ base: "mobileL2" }}>
+          PRODUCTS
+        </Heading>
       </Flex>
       <Box
         paddingX={{ base: "20px", xl: "5vw" }}

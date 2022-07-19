@@ -27,6 +27,7 @@ const Pagination: FC<IPaginationProps> = ({
         const isPageSelected = currentPage === number;
         return (
           <ColoredButton
+            dataCy={`pagination-button${isPageSelected ? "-selected" : ""}`}
             isActive={isPageSelected}
             text={String(number)}
             onClick={() => paginate(number)}

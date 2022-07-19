@@ -5,6 +5,7 @@ import aeropayLogo from "assets/icons/aeropay-2.svg";
 const AeroCard: FC = () => {
   return (
     <Flex
+      data-cy="aerocard"
       padding="16px"
       direction="column"
       height={"150px"}

@@ -10,15 +10,9 @@ const MainImage: FC = () => {
       position={{ base: "relative", xl: "static" }}
       top="90px"
       zIndex={"50"}
-      /**
-       * reutilizar estos estilos para la vista de desktop
-       * backgroundImage="linear-gradient(90deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%)"
-       * backgroundSize="100% 87.4%"
-       * backgroundPosition={"center center"}
-       * backgroundRepeat="no-repeat"
-       **/
     >
       <Image
+        data-cy="presentation-img"
         backgroundImage={{
           xl: "linear-gradient(90deg, rgba(23, 111, 235, 0.5) -5.34%, rgba(255, 128, 255, 0.5) 106.58%)",
         }}
@@ -37,10 +31,3 @@ const MainImage: FC = () => {
 };
 
 export { MainImage };
-/**        width={{ base: "580px", xl: "897px" }}
-        minWidth={{ base: "580px", xl: "897px" }}
-        height={{ base: "518px", xl: "795px" }}
-        
-        width={{ base: "580px", xl: "720px" }}
-        minWidth={{ base: "580px", xl: "720px" }}
-        height={{ base: "518px", xl: "600px" }} */

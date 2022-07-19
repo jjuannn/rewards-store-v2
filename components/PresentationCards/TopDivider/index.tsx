@@ -3,6 +3,7 @@ import { FC } from "react";
 const TopDivider: FC = () => {
   return (
     <div
+      data-cy="section-divider"
       style={{
         overflow: "hidden",
         position: "absolute",

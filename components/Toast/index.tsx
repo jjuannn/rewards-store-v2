@@ -16,6 +16,7 @@ const Toast: FC<IToastProps> = ({ text, status, onClose }) => {
 
   return (
     <Flex
+      data-cy="state-toast"
       background="neutrals.100"
       width={"100%"}
       maxWidth="500px"
