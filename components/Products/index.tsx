@@ -47,6 +47,7 @@ const ProductsSection: FC<IProductsSectionProps> = ({ products }) => {
   useEffect(() => {
     const orderedProducts = sortProducts();
     setProductsState(() => orderedProducts);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortOrder, filter]);
 
   const toast = useToast();
