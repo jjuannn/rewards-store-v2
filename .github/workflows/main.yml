@@ -22,21 +22,3 @@ jobs:
         with:
           build: npm run build
           start: npm start
-
-  build_and_deploy_job:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-      - name: Copy secrets to .env
-        run:
-          echo "${{ secrets.DOTENV }}" > .env
-          cat .env
-      - name: Build And Deploy
-        id: builddeploy
-        run:
-         npx vercel --token ${secrets.VERCEL_TOKEN} --prod
