@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:ui:dev": "cypress open"
+    "test:ui:dev": "cypress open",
+    "test:ui": "cypress run"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
