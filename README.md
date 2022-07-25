@@ -13,7 +13,7 @@ This application was made with:
 
 ## Deployment:
 
-- https://rewards-store-v2-9clju6w55-jjuannn.vercel.app/
+- https://rewards-store-v2-9rb8c02ft-jjuannn.vercel.app/
 
 ## Commands
 
