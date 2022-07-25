@@ -97,9 +97,13 @@ const ProductCard: FC<IProductCardProps> = ({
             {ableToRedeem ? (
               <>
                 Redeem for{" "}
-                <span data-cy="product-card-cost" style={{ marginLeft: "5px" }}>
+                <span
+                  data-cy="product-card-cost"
+                  style={{ marginLeft: "5px", marginRight: "5px" }}
+                >
                   {cost}
-                </span> points
+                </span>
+                points
               </>
             ) : (
               <span data-cy="product-card-required-cost">

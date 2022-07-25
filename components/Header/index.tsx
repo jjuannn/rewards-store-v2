@@ -1,8 +1,6 @@
 import { FC, useEffect } from "react";
 import { Flex, Link, Spinner, Text } from "@chakra-ui/react";
 import Image from "next/image";
-import brandLogo from "assets/icons/gift.png";
-import collapsibleLogo from "assets/icons/reward.png";
 import { CollapsibleWindow } from "./Collapsible";
 import ColoredText from "components/ColoredText";
 import { useUser } from "hooks/useUser";
@@ -28,7 +26,7 @@ const Header: FC = () => {
       data-cy="header-component"
     >
       <Link href="/" data-cy="header-brand-logo">
-        <Image src={brandLogo} width={"38.77px"} height={"36px"} alt="logo" />
+        <div></div>
       </Link>
       <Flex
         borderRadius="16px"
@@ -40,13 +38,6 @@ const Header: FC = () => {
         alignItems="center"
         data-cy="points-container"
       >
-        <Image
-          data-cy="points-brand-logo"
-          src={collapsibleLogo}
-          width={"25px"}
-          height={"25px"}
-          alt="logo"
-        />
         {userData.loading && <Spinner colorScheme={"red"} marginX="auto" />}
         {userData.data && (
           <ColoredText

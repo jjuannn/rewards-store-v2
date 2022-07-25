@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { CollapsibleCard } from "../CollapsibleCard/";
 import arrowLogo from "assets/icons/chevron-default.svg";
-import payLogo from "assets/icons/reward.png";
 import { ColoredButton } from "components/Products/ColoredButton";
 import { useUser } from "hooks/useUser";
 import { Toast } from "components/Toast";
@@ -172,16 +171,7 @@ const CollapsibleWindow: FC = () => {
                 {userAddCoins.loading ? (
                   <Spinner colorScheme="purple" />
                 ) : (
-                  <>
-                    <Image
-                      marginX={"5px"}
-                      src={payLogo.src}
-                      width="20px"
-                      height={"20px"}
-                      alt=""
-                    />
-                    Add Points
-                  </>
+                  <>Add Points</>
                 )}
               </Button>
             </Flex>
